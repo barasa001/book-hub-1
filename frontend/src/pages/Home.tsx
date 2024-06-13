@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+// Home.tsx
+import React, { useState, useEffect } from 'react';
 import Search from '../components/Search';
 import Filters from '../components/Filters';
-
-interface FiltersState {
-  genre: string;
-  author: string;
-  publicationDate: string;
-}
+import Book from '../components/Book';
+import { fetchBooks } from '../services/api'; // Import fetchBooks function
 
 const Home: React.FC = () => {
-  const [filters, setFilters] = useState<FiltersState>({
-    genre: '',
-    author: '',
-    publicationDate: ''
-  });
+  const [filters, setFilters] = useState({});
+  const [books, setBooks] = useState<any[]>([]);
 
-  const handleFilter = (newFilters: FiltersState) => {
+  useEffect(() => {
+    const loadBooks = async () => {
+      try {
+        const fetchedBooks = await fetchBooks(); // Fetch books from API
+        setBooks(fetchedBooks);
+      } catch (error) {
+        console.error('Error fetching books', error);
+      }
+    };
+
+    loadBooks();
+  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+
+  const handleFilter = (newFilters: any) => {
     setFilters(newFilters);
   };
 
@@ -24,6 +31,12 @@ const Home: React.FC = () => {
       <h2>Welcome to Book Hub</h2>
       <Filters onFilter={handleFilter} />
       <Search filters={filters} />
+
+      <div className="book-list">
+        {books.map((book: any) => (
+          <Book key={book.id} book={book} />
+        ))}
+      </div>
     </div>
   );
 };

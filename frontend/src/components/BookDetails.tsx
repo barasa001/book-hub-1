@@ -39,7 +39,6 @@ const BookDetails: React.FC = () => {
       <p>Authors: {book.authors.map(author => author.name).join(', ')}</p>
       <p>Publish Date: {book.publish_date}</p>
       <p>Description: {book.description}</p>
-      {/* Add more details as needed */}
     </div>
   );
 };
