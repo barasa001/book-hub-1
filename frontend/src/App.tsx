@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import BookDetails from './components/BookDetails';
-import './styles/App.css';
+import './App.css';
 
 const App: React.FC = () => {
   return (

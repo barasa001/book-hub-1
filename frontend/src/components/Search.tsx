@@ -4,26 +4,16 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Search.module.css';
 
 interface SearchProps {
-  filters: {
-    genre: string;
-    author: string;
-    publicationDate: string;
-  };
+  filters: any;
 }
 
 const Search: React.FC<SearchProps> = ({ filters }) => {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    if (query) {
-      handleSearch();
-    }
-  }, [query, filters]);
-
-  const handleSearch = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+  const handleSearch = async () => {
     if (!query) return;
+
     try {
       const data = await searchBooks(query);
       const filteredResults = data.docs.filter((book: any) => {
@@ -39,9 +29,18 @@ const Search: React.FC<SearchProps> = ({ filters }) => {
     }
   };
 
+  useEffect(() => {
+    handleSearch(); // Initial search when component mounts
+  }, [filters]); // Call handleSearch whenever filters change
+
+  const handleSearchSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch(); // Call handleSearch when the form is submitted
+  };
+
   return (
     <div className={styles.search}>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
           value={query}
@@ -52,7 +51,7 @@ const Search: React.FC<SearchProps> = ({ filters }) => {
       </form>
       <div className={styles.results}>
         {results.map((book: any) => (
-          <div key={book.key || book.cover_i} className={styles.result}>
+          <div key={book.key} className={styles.result}>
             <h3>{book.title}</h3>
             <p>{book.author_name?.join(', ')}</p>
             <Link to={`/books/${book.cover_edition_key || book.key}`}>View Details</Link>
