@@ -21,64 +21,71 @@ To run Book Hub locally, follow these steps:
    git clone https://github.com/barasa001/book-hub.git
    cd book-hub
 
+## Installation
+
 2. **Install dependencies:**
 
-  ```bash
-  # Navigate to the backend directory
-  cd backend
-  npm install
+   ```bash
+   # Navigate to the backend directory
+   cd backend
+   npm install
 
-  # Navigate to the frontend directory
-  cd ../frontend
-  npm install
+   # Navigate to the frontend directory
+   cd ../frontend
+   npm install
 
 3. **Set up environment variables:**
 
-Create a .env file in the backend directory and define the following variables:
+   Create a `.env` file in the `backend` directory and define the following variables:
 
-  ```bash
-  PORT=5000
-  MONGODB_URI=<mongodb_uri>
+   ```plaintext
+   PORT=5000
+   MONGODB_URI=<mongodb_uri>
 
 
 4. **Run the backend:**
 
    ```bash
-  # From the backend directory
-  npm start
-  Run the frontend:
+   # From the backend directory
+   npm start
 
-  ```bash
-  # From the frontend directory
-  npm start
-  Access Book Hub in your browser:
+5. **Run the frontend:**
 
-5. **Open http://localhost:3000 to view the application.**
+   ```bash
+   # From the frontend directory
+   npm start
 
-##Usage
-Searching for Books
-Enter keywords in the search bar to search for books.
-Use filters (genre, author, publication date) to refine your search results.
-Viewing Book Details
-Click on any book title or "View Details" link to see more information about a specific book.
-Navigation
-Navigate through the app using the sidebar links:
-Home: Returns to the homepage.
-Books: Lists all available books.
-Login: Accesses the login page.
-Sign Up: Accesses the sign-up page.
+6. **Access Book Hub in your browser:**
 
-##Technologies Used
-Frontend:
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
+   
+## Usage
 
-React
-React Router DOM
-Axios
-CSS Modules
-Backend:
+### Searching for Books
+- Enter keywords in the search bar to search for books.
+- Use filters (genre, author, publication date) to refine your search results.
 
-Node.js
-Express
-MongoDB
-Mongoose
-Axios
+### Viewing Book Details
+- Click on any book title or "View Details" link to see more information about a specific book.
+
+### Navigation
+- Navigate through the app using the sidebar links:
+  - **Home:** Returns to the homepage.
+  - **Books:** Lists all available books.
+  - **Login:** Accesses the login page.
+  - **Sign Up:** Accesses the sign-up page.
+
+## Technologies Used
+
+### Frontend:
+- React
+- React Router DOM
+- Axios
+- CSS Modules
+
+### Backend:
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- Axios
