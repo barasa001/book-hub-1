@@ -1,3 +1,4 @@
+// src/models/Book.js
 const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
@@ -5,7 +6,7 @@ const bookSchema = new mongoose.Schema({
   author: { type: String, required: true },
   genre: { type: String },
   publicationDate: { type: Date },
-  // Add more fields as needed
+  description: { type: String },
 });
 
 module.exports = mongoose.model('Book', bookSchema);

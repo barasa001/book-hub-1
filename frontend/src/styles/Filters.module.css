@@ -1,0 +1,17 @@
+.filters {
+    margin: 20px 0;
+  }
+  
+  .filters form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filters input {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .filters button {
+    padding: 10px;
+  }  

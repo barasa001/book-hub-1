@@ -1,0 +1,25 @@
+.search {
+    margin: 20px 0;
+  }
+  
+  .search form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search input {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .search button {
+    padding: 10px;
+  }
+  
+  .results {
+    margin-top: 20px;
+  }
+  
+  .result {
+    margin-bottom: 10px;
+  }  

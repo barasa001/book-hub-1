@@ -1,8 +1,9 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const bookRoutes = require('./routes/books');
-
+const bookRoutes = require('./src/routes/books');
 const app = express();
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/bookhub';
 
